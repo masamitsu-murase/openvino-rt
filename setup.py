@@ -20,7 +20,7 @@ setup(
     name="openvino_rt",
     author="Masamitsu MURASE",
     author_email="masamitsu.murase@gmail.com",
-    url="https://github.com/masamitsu-murase/openvino-python",
+    url="https://github.com/masamitsu-murase/openvino-rt",
     version="2019.1.148",
     description="OpenVINO Runtime Libraries",
     zip_safe=False,
