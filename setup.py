@@ -16,10 +16,14 @@ def find_data_files():
     return list(data_files_tree.items())
 
 
-print(find_data_files())
-
-setup(name="openvino_rt",
-      version="2019.1.148",
-      packages=["sample"],
-      package_dir={"sample": "src/sample"},
-      data_files=find_data_files())
+setup(
+    name="openvino_rt",
+    author="Masamitsu MURASE",
+    author_email="masamitsu.murase@gmail.com",
+    url="https://github.com/masamitsu-murase/openvino-python",
+    version="2019.1.148",
+    description="OpenVINO Runtime Libraries",
+    zip_safe=False,
+    install_requires=["icc_rt"],
+    data_files=find_data_files(),
+)
