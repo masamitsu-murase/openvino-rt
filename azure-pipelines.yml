@@ -1,0 +1,43 @@
+
+trigger:
+  branches:
+    include:
+    - '*'
+  tags:
+    include:
+    - '*'
+pr:
+  branches:
+    include:
+    - '*'
+jobs:
+- job: windows
+  displayName: Windows
+  pool:
+    vmImage: 'vs2017-win2016'
+  steps:
+  - script: git config --global core.autoCRLF false
+    displayName: "Disable git autoCRLF"
+  - checkout: self
+    displayName: "Checkout"
+    fetchDepth: 50
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: 3.6.x
+      addToPath: true
+      architecture: 'x64'
+  - script: pip install -r requirements.txt
+    displayName: Install necessary libraries.
+  - script: cmd /c build.cmd
+    displayName: Build wheel
+  - task: CopyFiles@2
+    inputs:
+      contents: dist\*.whl
+      targetFolder: $(Build.ArtifactStagingDirectory)
+      flattenFolders: true
+      cleanTargetFolder: true
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathtoPublish: $(Build.ArtifactStagingDirectory)
+      artifactName: wheel
+      publishLocation: Container
