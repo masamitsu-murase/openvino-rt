@@ -22,7 +22,7 @@ setup(
     author="Masamitsu MURASE",
     author_email="masamitsu.murase@gmail.com",
     url="https://github.com/masamitsu-murase/openvino-rt",
-    version="2019.2.275",
+    version="2019.3.334",
     description="OpenVINO Runtime Libraries",
     zip_safe=False,
     install_requires=["icc_rt"],
