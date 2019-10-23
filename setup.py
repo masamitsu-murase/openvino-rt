@@ -18,6 +18,7 @@ def find_data_files():
 
 setup(
     name="openvino_rt",
+    license="Apache License 2.0",
     author="Masamitsu MURASE",
     author_email="masamitsu.murase@gmail.com",
     url="https://github.com/masamitsu-murase/openvino-rt",
